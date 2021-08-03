@@ -72,3 +72,11 @@ let namePerson = prompt('Введите имя');
 let result = (namePerson == 'Артем') ? console.log('Директор') 
     : (namePerson == 'Максим') ? console.log('Преподаватель') 
     : console.log('Студент');
+
+ 
+let arr = new Map([
+  // 1- ключ 2 - значение
+['ru', ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']],
+['en', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Sutterday', 'Sunday']]
+]);
+console.log(arr.get(lang));
