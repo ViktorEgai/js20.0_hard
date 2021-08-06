@@ -13,11 +13,13 @@ console.log(arr);
 
 // задача 2
 mainLoop:
-for (let i = 1; i <= 100; i++) {
+for (let i = 2; i <= 100; i++) {
 
   for (let j = 2; j < i; j++) { 
     if (i % j == 0) continue mainLoop; 
   }
 
-  console.log( i ); 
+  console.log( i, ': Делитель этого числа 1 и ', i ); 
 }
+
+
