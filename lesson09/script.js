@@ -35,34 +35,23 @@ function showTime() {
   }
 
   function getHour() {
-    if (hour === 1) return  hour + ' час';
-    if (hour % 10 === 2 || hour % 10 === 3 || hour % 10 === 4) return  hour + ' часа';
+    if (hour === 1 || hour === 21)  return  hour + ' час';
+    if (hour > 21) return  hour + ' часа';
     if (hour > 4 && hour < 21) return  hour + ' часов';
   }
 
-  function getMinute() {  
-    if (minute % 10 === 0 ||
-        (minute > 4 && minute <= 20) ||
-        (minute > 24 && minute <= 30) ||
-        (minute > 34 && minute <= 40) ||
-        (minute > 44 && minute <= 50) ||
-        (minute > 54 && minute <= 60)) return minute + ' минут';
-    if (minute === 1) return minute + ' минута';
-    if (minute % 10 === 2 || minute % 10 === 3 || minute % 10 === 4) return  minute + ' минуты';
-  }
-
-  function getSecond() {       
-    if (second % 10 === 0 ||
-      (second > 4 && second <= 20) ||
-      (second > 24 && second <= 30) ||
-      (second > 34 && second <= 40) ||
-      (second > 44 && second <= 50) ||
-        (second > 54 && second <= 60)) return second + ' секунд'; 
-    if (second === 1|| second === 11|| second === 21 ||second === 31 || second === 41 ||
-      second === 51) return second + ' секунда'; 
-    if (second % 10 === 2 || second % 10 === 3 || second % 10 === 4) return second + ' секунды'; 
-  } 
-  dateA.innerHTML = `Сегодня ${weekName}, ${day} ${monthName} ${year} года. ${getHour()} ${getMinute()} ${getSecond()} `
+  function getTime(type, arr) {  
+    if (type === 1 || type === 21 || type === 31 || type === 41 ||
+      type === 51) return type + arr[0];
+    if (type % 10 === 0 ||
+        (type > 4 && type <= 20) ||
+        (type > 24 && type <= 30) ||
+        (type > 34 && type <= 40) ||
+        (type > 44 && type <= 50) ||
+        (type > 54 && type <= 60)) return type + arr[1];
+    if (type % 10 === 2 || type % 10 === 3 || type % 10 === 4) return  type + arr[2];
+  }  
+  dateA.innerHTML = `Сегодня ${weekName}, ${day} ${monthName} ${year} года. ${getHour()} ${getTime(minute, [' минута', ' минут', ' минуты'])} ${getTime(second, [' секунда', ' секунд', ' секунды'])} `
 }
 
 // б) '04.02.2020 - 21:05:33' 
